@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NewSteamGame</title>
+    <%= csrf_meta_tags %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poller+One" rel="stylesheet">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+  </head>
+
+  <body>
+
+  <header>
+    <nav class="nav-accent">
+      <div class="nav-wrapper brown lighten-1">
+      </div>
+    </nav>
+    <nav>
+      <div class="nav-wrapper pink lighten-3">
+        <a href="/" class="uni-nav">  Washington University Public Health Fund</a>
+        <a href="/" class="brand-logo center logo">LabShare</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if logged_in? %>
+          <li><%= current_user.email %></li>
+          <li><%= link_to "Log Out", session_path(current_user.id), method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Register", new_user_path %></li>
+          <li><%= link_to "Log In", new_session_path %></li>
+        <% end %>
+        <li><%= link_to 'Home', root_path %></li>
+          <li><div>
+            <a class="waves-effect waves-light btn modal-trigger pink lighten-3 z-depth-1" href="#modal1">FAQ</a>
+              <div id="modal1" class="modal modal-fixed-footer brown lighten-5">
+                <div class="modal-content black-text">
+                  <h3>Welcome to LabShare!</h3>
+                  <%= render partial: '/help' %>
+                </div>
+              <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect pink lighten-3 btn-flat">Done</a>
+              </div>
+            </div>
+          </div></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  </body>
+</html>
