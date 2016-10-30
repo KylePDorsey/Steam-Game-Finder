@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def show
   	if logged_in?
-  		@url =  "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=3B0D465BC26FCAFF0D39AEF3724A9522&include_played_free_games=1&include_appinfo=1&steamid=76561197965143225&format=json"
+  		@url =  "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=XXXXXXX&include_played_free_games=1&include_appinfo=1&steamid=76561197965143225&format=json"
   		 ret = HTTParty.get(@url.to_str) 
   		 @info = ret.parsed_response["response"]
   		 # @info["games"].each do |game|
