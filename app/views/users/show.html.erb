@@ -1,0 +1,16 @@
+<p>user page</p>
+
+
+<ul class="collection">
+	<% @info["games"].each do |game| %>
+
+	  <li class="collection-item avatar">
+	    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/<%= game['appid']%>/<%= game['img_icon_url']%>.jpg" alt="" class="circle">
+	    <span class="title"><%= game["name"]%></span>
+	    <p><%= game["appid"]%><br>
+	       Time Played:<%= game["playtime_forever"]%>
+	    </p>
+	    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+	  </li>
+  <% end %>
+</ul>

@@ -4,4 +4,5 @@ class GamesController < ApplicationController
 		@games = Game.all
 		@user = current_user
 	end
+
 end
