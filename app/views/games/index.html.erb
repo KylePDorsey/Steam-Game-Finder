@@ -1,2 +1,7 @@
 <h1>Lets play some new games</h1>
-<p><%= current_user.steam_name %></p>
+
+<% if current_user %>
+	<p><%= current_user.steam_name %></p>
+	<% else %>
+	<p>No one is logged in</p>
+<% end %>
