@@ -2,6 +2,10 @@
 
 <% if current_user %>
 	<p><%= current_user.steam_name %></p>
+	<%= link_to "user", user_path(current_user) %>
 	<% else %>
 	<p>No one is logged in</p>
 <% end %>
+
+
+
